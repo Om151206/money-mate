@@ -9,6 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const dataPath = process.env.DATA_PATH || path.join(__dirname, 'data', 'db.json');
 
+if (process.env.NODE_ENV === 'production') app.set('trust proxy', true);
+
 function readDb() {
   try { return JSON.parse(fs.readFileSync(dataPath, 'utf8')); }
   catch { return { users: [], transactions: [], budgets: [], goals: [] }; }
@@ -46,6 +48,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'change-this-secret-before-production',
   resave: false,
   saveUninitialized: false,
+  proxy: process.env.NODE_ENV === 'production',
   cookie: { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 1000 * 60 * 60 * 24 * 14 }
 }));
 
