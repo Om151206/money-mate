@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: money-mate
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      # Optional: mount a Render persistent disk at /var/data, then uncomment.
+      # - key: DATA_PATH
+      #   value: /var/data/db.json

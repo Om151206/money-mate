@@ -1,0 +1,16 @@
+{
+  "name": "money-mate",
+  "version": "1.0.0",
+  "description": "A student-friendly money tracker with dashboards, budgets, goals and exports.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1"
+  }
+}
