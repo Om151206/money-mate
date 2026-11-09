@@ -11,6 +11,5 @@ services:
         value: production
       - key: SESSION_SECRET
         generateValue: true
-      # Optional: mount a Render persistent disk at /var/data, then uncomment.
-      # - key: DATA_PATH
-      #   value: /var/data/db.json
+      # Add DATABASE_URL, or DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, and DB_NAME
+      # in the Render dashboard. Set MYSQL_SSL=true if required by your provider.
